@@ -125,8 +125,9 @@ def val(model, device, test_loader):
         print('\nVal set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
             avgloss, correct, len(test_loader.dataset), 100 * acc))
         log_stats.append(str(test_str))
+        torch.save(model_ft,'modelresnet.pth')
         if acc > ACC:
-            torch.save(model_ft, 'model_' + str(epoch) + '_' + str(round(acc, 3)) + '.pth')
+            # torch.save(model_ft, 'model_' + str(epoch) + '_' + str(round(acc, 3)) + '.pth')
             ACC = acc
 
 
