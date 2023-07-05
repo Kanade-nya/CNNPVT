@@ -8,6 +8,9 @@ from torchvision import transforms
 from pvt import pvt_tiny
 from torch.autograd import Variable
 from torchvision.models import resnet50
+
+from resnet_50 import ResNet50
+
 modellr = 1e-4
 BATCH_SIZE = 128
 EPOCHS = 300
@@ -35,7 +38,7 @@ test_loader = torch.utils.data.DataLoader(test_ds, batch_size=BATCH_SIZE, shuffl
 
 # 实例化模型并且移动到GPU
 criterion = nn.CrossEntropyLoss()
-model_ft = resnet50(pretrained=False)
+model_ft = ResNet50(num_classes=100)
 # print(model_ft)
 
 # num_ftrs = model_ft.head.in_features
